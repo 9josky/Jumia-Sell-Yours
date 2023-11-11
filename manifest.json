@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Product Scraper",
+  "version": "1.0",
+  "description": "Scrape product details from a webpage",
+  "permissions": [
+    "activeTab",
+    "storage",
+    {
+      "host": [
+        "www.jumia.com.ng"
+      ]
+    }
+  ],
+  "action": {
+    "default_popup": "client/popup.html"
+  }
+}

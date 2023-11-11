@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Product Scraper</title>
+    <link rel="stylesheet" type="text/css" href="popup.css" />
+  </head>
+  <body>
+    <form id="scrapeForm">
+      <input
+        type="text"
+        id="urlInput"
+        placeholder="Enter URL"
+        style="height: 40px; width: 80%"
+      />>
+      <button type="submit">Scrape</button>
+    </form>
+
+    <div id="savedProduct"></div>
+
+    <div id="result">
+      <!-- Data will be populated here -->
+    </div>
+    <button id="removeAllProducts">Remove All</button>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
