@@ -9,6 +9,7 @@ CORS(app)
 
 @app.route('/scrape', methods=['POST'])
 def scrape():
+    print("Scrape request received")
     url = request.json['url']
     response = requests.get(url)
 
