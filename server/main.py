@@ -27,6 +27,7 @@ def download_image(image_url, image_name):
 def scrape():
     print("Scrape request received")
     url = request.json['url']
+    download_images = request.json.get('download_images', False)
     response = requests.get(url)
 
     if response.status_code == 200:
@@ -70,7 +71,6 @@ def scrape():
                           for a in sldr_div.find_all('a', class_='itm')]
 
             # Check if the 'download_images' checkbox is selected
-            download_images = request.json.get('download_images', False)
 
         data = {
             "Product Title": product_title,
@@ -83,6 +83,7 @@ def scrape():
             "Key Features": key_features,
             "Product Description": product_description,
             "Product Image URLs": image_urls if not download_images else None,
+            "Download Images": download_images,
         }
         print("{data} data")
 
