@@ -12,13 +12,12 @@ DOWNLOAD_FOLDER = 'downloaded_images'
 app.config['DOWNLOAD_FOLDER'] = DOWNLOAD_FOLDER
 
 
-def download_image(image_url, image_name):
-    response = requests.get(image_url)
+def download_image(url, filename):
+    response = requests.get(url)
     if response.status_code == 200:
-        image_path = os.path.join(app.config['DOWNLOAD_FOLDER'], image_name)
-        with open(image_path, 'wb') as image_file:
-            image_file.write(response.content)
-        return image_path
+        with open(filename, 'wb') as f:
+            f.write(response.content)
+        return filename
     else:
         return None
 
