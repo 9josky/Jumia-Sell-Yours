@@ -3,24 +3,56 @@
   <head>
     <title>Product Scraper</title>
     <link rel="stylesheet" type="text/css" href="popup.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
   </head>
-  <body>
-    <form id="scrapeForm">
+  <body id="extensionContainer">
+    <div id="closeButton" style="cursor: pointer">X</div>
+    <form style="display: flex; gap: 10px" id="scrapeForm">
       <input
         type="text"
         id="urlInput"
         placeholder="Enter URL"
         style="height: 40px; width: 80%"
-      />>
-      <button type="submit">Scrape</button>
+      />
+      <button
+        style="
+          border: none;
+          border-radius: 10px;
+          padding: 10px;
+          background-color: #16c1a1;
+          cursor: pointer;
+          color: white;
+        "
+        type="submit"
+      >
+        Get Product
+      </button>
     </form>
+    <div id="loadingSpinner" style="display: none">
+      <i class="fas fa-spinner fa-spin"></i> Loading...
+    </div>
+    <div><p id="error"></p></div>
 
     <div id="savedProduct"></div>
-
+    <button
+      id="removeAllProducts"
+      style="
+        background-color: #f43661;
+        border-radius: 10px;
+        padding: 10px;
+        color: white;
+        border: none;
+        cursor: pointer;
+      "
+    >
+      Delete All
+    </button>
     <div id="result">
       <!-- Data will be populated here -->
     </div>
-    <button id="removeAllProducts">Remove All</button>
 
     <script src="popup.js"></script>
   </body>
