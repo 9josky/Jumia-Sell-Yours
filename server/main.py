@@ -52,8 +52,14 @@ def scrape():
                         product_color = spec.text.split(': ')[1]
                     elif label == 'Weight (kg)':
                         product_weight = spec.text.split(': ')[1]
-        product_price = soup.find(
-            'span', class_='-b -ltr -tal -fs24 -prxs').text
+        # product_price = soup.find(
+        #     'span', class_='-b -ltr -tal -fs24 -prxs').text
+        price_span = soup.find(
+            'span', class_=['-b', '-ltr', '-tal', '-fs24', '-prxs'])
+        if price_span:
+            product_price = price_span.text
+        else:
+            product_price = "Not found"
         product_description = soup.find(
             'div', class_='markup -mhm -pvl -oxa -sc').text
         features = soup.find_all('div', class_='markup -pam')
